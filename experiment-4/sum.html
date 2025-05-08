@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sum Calculator with Confirm</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #c37c7c;
+      font-family: Arial, sans-serif;
+      gap: 10px;
+    }
+
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    button:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+
+    #result {
+      font-weight: bold;
+      background: white;
+      padding: 10px;
+      border-radius: 5px;
+      width: 300px;
+      text-align: center;
+      min-height: 60px;
+      box-sizing: border-box;
+    }
+
+    #numberInput {
+      width: 300px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <input type="number" id="numberInput" placeholder="Enter a number">
+  <button onclick="startSum()" id="calculateButton">Start Adding</button>
+  <div id="result">Sum: 0</div>
+
+  <script>
+    function startSum() {
+      // Disable button during calculation
+      const calculateButton = document.getElementById('calculateButton');
+      calculateButton.disabled = true;
+      
+      let sum = 0;
+      let numbers = [];
+
+      // Get and validate the initial number
+      const initialInput = document.getElementById('numberInput').value.trim();
+      const initialNum = parseFloat(initialInput);
+      
+      if (!initialInput || isNaN(initialNum)) {
+        alert("Please enter a valid number to start.");
+        calculateButton.disabled = false;
+        return;
+      }
+
+      sum += initialNum;
+      numbers.push(initialNum);
+      
+      // Clear and focus the input box
+      const numberInput = document.getElementById('numberInput');
+      numberInput.value = '';
+      
+      // Function to handle additional numbers
+      function addMoreNumbers() {
+        let userInput = prompt("Enter the next number:");
+        
+        // If user cancels or closes the prompt
+        if (userInput === null) {
+          showFinalResult();
+          return;
+        }
+        
+        userInput = userInput.trim();
+        const num = parseFloat(userInput);
+        
+        if (!userInput || isNaN(num)) {
+          alert("Please enter a valid number.");
+          addMoreNumbers(); // Try again
+          return;
+        }
+        
+        sum += num;
+        numbers.push(num);
+        
+        if (confirm(`Current sum: ${sum}\n\nDo you want to add another number?`)) {
+          addMoreNumbers();
+        } else {
+          showFinalResult();
+        }
+      }
+      
+      // Function to display the final result
+      function showFinalResult() {
+        document.getElementById('result').innerHTML = `
+          Numbers entered: ${numbers.join(", ")}<br>
+          Total numbers: ${numbers.length}<br>
+          Sum: ${sum}
+        `;
+        calculateButton.disabled = false;
+        numberInput.focus();
+
+      }
+      
+      // Start the process of adding more numbers
+      if (confirm(`Starting with: ${initialNum}\n\nDo you want to add another number?`)) {
+        addMoreNumbers();
+      } else {
+        showFinalResult();
+      }
+    }
+    
+    // Allow pressing Enter in the input field to start
+    document.getElementById('numberInput').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        startSum();
+      }
+    });
+  </script>
+
+</body>
+</html>
+
+
+

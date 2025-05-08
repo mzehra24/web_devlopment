@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Multiplication Table</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 90vh;
+      background-color: #c37c7c;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #result {
+      font-weight: bold;
+      background: white;
+      padding: 10px;
+      border-radius: 5px;
+      width: 100%;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <input type="text" id="numberInput" placeholder="Enter a number">
+    <button onclick="multiplication()">Display Multiplication</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function multiplication() {
+      var num = document.getElementById('numberInput').value;
+      num = parseInt(num);
+
+      if (isNaN(num)) {
+        alert("Please enter a valid number.");
+        return;
+      }
+
+      var result = "";
+      for (var i = 1; i <= 10; i++) {
+        result += num + " x " + i + " = " + (num * i) + "<br>";
+      }
+
+      document.getElementById('result').innerHTML = result;
+      alert("Enter number to calculate multiplication of the given number")
+    }
+  </script>
+
+</body>
+</html>
+

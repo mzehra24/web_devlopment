@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display Date Example</title>
+  <!-- Removed invalid CSS link -->
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 90vh;
+      background-color: #c37c7c;
+      gap: 20px; /* Added here for spacing between elements */
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+    
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+
+
+  </style>
+</head>
+<body>
+  <input type="text" id="dateBox">
+  <button onclick="displayDate()">Display Date</button>
+  <div id="result"></div>
+
+
+  <script>
+    function displayDate() {
+      alert("Click to get today's date");
+      document.getElementById("dateBox").value = new Date().toLocaleString();
+    }
+  </script>
+</body>
+</html>
