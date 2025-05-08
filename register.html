@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register in ShoppingGo!</title>
+  <style>
+    form {
+      border: 1px solid white;
+      background-color: white;
+      width: 400px;
+      padding: 20px;
+      margin: 30px auto;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    body {
+      background-color: rgb(204, 224, 174);
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      color: black;
+    }
+
+    form div {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="date"],
+    input[type="tel"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    .btn {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .reset-btn {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .submit-btn {
+      background-color: green;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Register in ShoppingGo!</h1>
+  <form method="post">
+    <div class="container">
+      <label for="firstname">Enter your first name</label>
+      <input type="text" name="firstname" id="firstname" placeholder="Enter first name">
+    </div>
+
+    <div>
+      <label for="lastname">Enter last name</label>
+      <input type="text" name="lastname" id="lastname" placeholder="Enter last name">
+    </div>
+
+    <div>
+      <label for="username">Enter username</label>
+      <input type="text" name="username" id="username" placeholder="Enter username">
+    </div>
+
+    <div>
+      <label for="emailid">Enter email id</label>
+      <input type="text" name="emailid" id="emailid" placeholder="Enter your email id">
+    </div>
+
+    <div>
+      <label for="password">Enter password</label>
+      <input type="password" name="password" id="password" placeholder="Enter password">
+    </div>
+
+    <div class="container">
+      <label for="dob">Enter date of birth</label>
+      <input type="date" name="dob" id="dob">
+    </div>
+
+    <div>
+      <label for="mobile">Enter mobile number</label>
+      <input type="tel" name="mobile" id="mobile" placeholder="Mobile no">
+    </div>
+
+    <div>
+      <input type="radio" id="male" name="gender" value="male">
+      <label for="male" style="display:inline;">Male</label>
+      <input type="radio" id="female" name="gender" value="female">
+      <label for="female" style="display:inline;">Female</label>
+    </div>
+
+    <div>
+      <input type="checkbox" id="terms" name="terms" value="yes">
+      <label for="terms" style="display:inline;">Agree to terms and conditions</label>
+    </div>
+
+    <div class="btn">
+      <input type="reset" value="Reset" class="reset-btn">
+      <input type="submit" value="Submit" class="submit-btn">
+    </div>
+  </form>
+</body>
+</html>
