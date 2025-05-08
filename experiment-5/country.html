@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Document</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, pink, #fff, rgb(206, 135, 206));
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      background-color: white;
+      border-radius: 10px;
+      margin: auto;
+      max-width: 600px;
+      padding: 20px;
+      text-align: center;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    #result {
+      color: rgb(213, 116, 135);
+      font-weight: bold;
+      font-size: 32px;
+    }
+    button {
+      background-color: rgb(125, 199, 125);
+      border: none;
+      color: white;
+      padding: 12px 16px;
+      border-radius: 10px;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 2px 3px 5px gray;
+    }
+    button:hover {
+      transform: scale(1.1);
+      transition: all 0.3s ease;
+      background-color: red;
+      box-shadow: 0 5px 7px lightgray;
+    }
+    #country {
+      padding: 12px;
+      border: 1px solid black;
+      border-radius: 10px;
+      width: 200px;
+    }
+  </style>
+  <script defer>
+    function showCapital() {
+      const countries = {
+        India: "New Delhi",
+        USA: "Washington, D.C.",
+        France: "Paris",
+        Germany: "Berlin",
+        Japan: "Tokyo",
+      };
+      const selectedCountry = document.getElementById('country').value;
+      document.getElementById("result").innerText = 
+        "Capital of the selected country: " + countries[selectedCountry];
+    }
+
+    function textChange() {
+      const textElement = document.getElementById("text");
+      textElement.innerHTML = "Welcome to JavaScript";
+      textElement.style.color = "red";
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1 id="text">My First Website Using JavaScript</h1>
+    <p id="text1">JavaScript</p>
+    <button type="button" onclick="textChange()">Click me!</button>
+
+    <h2>Select a Country To See Its Capital</h2>
+    <select id="country" onchange="showCapital()">
+      <option value="" selected disabled>Select a country</option>
+      <option value="India">India</option>
+      <option value="USA">USA</option>
+      <option value="France">France</option>
+      <option value="Germany">Germany</option>
+      <option value="Japan">Japan</option>
+    </select>
+
+    <p id="result"></p>
+  </div>
+</body>
+</html>
